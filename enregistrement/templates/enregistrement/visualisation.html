@@ -1,0 +1,325 @@
+<DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CMDS_DATABASE EXPLOITANTS ARTISANAUX MINIERS</title>
+    </head>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 20px;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 2000px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #0c0101;
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 1px;
+        }
+
+        h3 {
+            color: #f4f4fa;
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 2px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: match-parent;
+        }
+
+        td {
+            border: 1px solid #acaaaa;
+            padding: 10px;
+            text-align: justify;
+           
+        }
+
+        th {
+            background-color: #897df2;
+        }
+
+      
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-align: center;
+            color: #b5cee9;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        .btn-blue {
+            background-color: #0d024a;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-blue:hover {
+            background-color: #328ae9;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+
+        .btn-red {
+            background-color: #e40a27;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-red:hover {
+            background-color: #ef7f90
+
+        }
+        .btn-green {
+            background-color: #0ff13c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-green:hover {
+            background-color: #90e783
+
+        }
+
+        header {
+            background-color: #080707;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+
+        .logo-container img {
+            max-height: 150px; /* Modifiez cette valeur selon vos besoins */
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 5px;
+        }
+
+        h3 {
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+        .hidden {
+        display: none;
+        }
+
+    </style>
+
+    </head>
+    <body>
+
+    </head>
+    <script>
+        function demanderMotDePasse() {
+            var motDePasse = prompt("Veuillez entrer le mot de passe :");
+
+            // Vérifiez si le mot de passe est correct
+            if (motDePasse === "TSHIkomwa@31") {
+                // Redirigez l'utilisateur vers la page désirée
+                window.location.href = lienCible;
+            } else {
+                alert("Mot de passe incorrect. Accès refusé.");
+            }
+        }
+    </script>
+
+    <script>
+        var lienCible;
+
+        function demanderMotDePasse(lien) {
+            lienCible = lien;
+            var motDePasse = prompt("Veuillez entrer le mot de passe :");
+
+            // Vérifiez si le mot de passe est correct
+            if (motDePasse === "TSHIkomwa@31") {
+                // Redirigez l'utilisateur vers la page désirée
+                window.location.href = lienCible;
+            } else {
+                alert("Mot de passe incorrect. Accès refusé.");
+            }
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Fonction pour compter les enregistrements par fonction
+            function countByFunction() {
+                var functionCounts = {};
+
+                // Parcourir chaque exploitant et compter les enregistrements par fonction
+                /*{% for exploitant in exploiteurs %}*/
+                var fonction = "{{ exploitant.fonction }}";
+                functionCounts[fonction] = (functionCounts[fonction] || 0) + 1;
+                /*{% endfor %}*/
+
+
+                // Afficher les résultats dans la section correspondante
+                var functionCountsList = document.getElementById('functionCounts');
+                for (var fonction in functionCounts) {
+                    var count = functionCounts[fonction];
+                    var listItem = document.createElement('li');
+                    listItem.textContent = fonction + ': ' + count;
+                    functionCountsList.appendChild(listItem);
+                }
+            }
+
+            // Appeler la fonction pour compter les enregistrements par fonction
+            countByFunction();
+        });
+    </script>
+
+
+
+   
+    <body>
+        <header>
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Flag_of_the_Democratic_Republic_of_the_Congo.svg/langfr-225px-Flag_of_the_Democratic_Republic_of_the_Congo.svg.png" alt="Logo Gauche">
+                <div class="titles">
+                    <h1>REPUBLIQUE DEMOCRATIQUE DU CONGO</h1>
+                    <h3>PROVINCE DU LUALABA</h3>
+                    <h3>COOPERATIVE MINIERE POUR LE DEVELOPPEMENT ET LE SOCIAL AVEC CONSEIL D'ADMINISTRATION, CMDS COOP-CA en sigle.</h3>
+                </div>
+                <img src="https://static1.s123-cdn-static-a.com/uploads/8185280/800_64faff21e7006.jpg" alt="Logo Droit">
+            </div>
+        </header>
+        <h2>STATISTIQUES DES EXPLOITANTS ARTISANAUX MINIERS</h2>
+        <!-- Nombre total des exploitants -->
+        <p>Miniers artisanaux dûment enregistrés: {{ total_exploitants }}</p>
+        <div class="search-and-links">
+            <form class="search-form" method="GET" action="">
+                <label for="search" style="margin-right: 10px;">Recherche:</label>
+                <input type="text" id="search" name="search" class="search-input" value="{{ search_query }}">
+                <button type="submit">Click</button>
+            </form>
+    
+            <div class="navigation-links">
+                <a href="{% url 'recording' %}" class="register-another btn-blue">Enregistrer à nouveau</a>
+                <a href="{% url 'accueil' %}" class="return-home btn-red">Retourner à l'accueil</a>
+            </div>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>NOM</th>
+                    <th>POST-NOM</th>
+                    <th>PRENOM</th>
+                    <th>SEXE</th>
+                    <th class="hidden">LIEU DE NAISSANCE</th>
+                    <th class="hidden">DATE DE NAISSANCE</th>
+                    <th class="hidden">ETAT-CIVIL</th>
+                    <th class="hidden">NOM DU (DE LA) CONJOINT(E)</th>
+                    <th class="hidden">NOMBRE D'ENFANT(S)</th>
+                    <th class="hidden">ADRESSE</th>
+                    <th class="hidden">NIVEAU D'ETUDE</th>
+                    <th class="hidden">PROFESSION</th>
+                    <th>FONCTION</th>
+                    <th class="hidden">CONTACT</th>
+                    <th>DATE D'ENREGISTREMENT</th>
+                    <th>DATE DE MODIFICATION</th>
+                    <th>PHOTO</th>
+                    <th>QR CODE</th>
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for exploitant in exploiteurs %}
+            <tr {% if exploitant.nom == search_value or exploitant.post_nom == search_value or exploitant.prenom == search_value or forloop.counter == search_value %}class="highlight-row"{% endif %}></tr>
+            <td class="numero-ordre">{{ forloop.counter|default:"00000" }}</td>
+                    <td>{{ exploitant.nom }}</td>
+                    <td>{{ exploitant.post_nom }}</td>
+                    <td>{{ exploitant.prenom }}</td>
+                    <td>{{ exploitant.sexe }}</td>
+                    <td class="hidden">{{ exploitant.lieu_naissance }}</td>
+                    <td class="hidden">{{ exploitant.date_naissance }}</td>
+                    <td class="hidden">{{ exploitant.etat_civil }}</td>
+                    <td class="hidden">{{ exploitant.nom_conjoint }}</td>
+                    <td class="hidden">{{ exploitant.nb_enfants }}</td>
+                    <td class="hidden">{{ exploitant.adresse }}</td>
+                    <td class="hidden">{{ exploitant.niveau_etude }}</td>
+                    <td class="hidden">{{ exploitant.profession }}</td>
+                    <td>{{ exploitant.fonction }}</td>
+                    <td class="hidden">{{ exploitant.telephone }}</td>
+                    <td>{{ exploitant.date_enregistrement }}</td>
+                    <td>{{ exploitant.date_mise_a_jour }}</td>
+                    <td><img src="{% url 'get_image' exploitant.id 'photo' %}" alt="Photo" style="max-width: 100px; max-height: 100px;"></td>
+                    <td><img src="{% url 'get_image' exploitant.id 'qrcode' %}" alt="QR Code" style="max-width: 100px; max-height: 100px;"></td>
+
+                    <!-- Actions -->
+                    <!-- Actions -->
+                    <td>
+                        <a href="javascript:void(0);" onclick="demanderMotDePasse('{% url 'update_exploitant' exploitant.id %}');"
+                        class="update-button btn-blue update-link">Update</a>
+                        
+                        <a href="javascript:void(0);" onclick="demanderMotDePasse('{% url 'delete_exploitant' exploitant.id %}');"
+                        class="delete-button btn-red delete-link">Delete</a>
+                        
+                        <a href="javascript:void(0);" onclick="demanderMotDePasse('{% url 'detail_exploitant' exploitant.id %}');"
+                        class="detail-button btn-green detail-link">Detail</a>
+                    </td>
+
+
+
+                    <!-- Ajouter une section pour afficher le nombre d'enregistrements par fonction -->
+                    <div class="function-counts">
+                        <ul id="functionCounts"></ul>
+                    </div>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+        <!-- Zone de recherche par numéro d'ordre -->
+    </body>
+    
+    </html>
+    
+
+
+

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FICHE D'ENREGISTREMENT DES EXPLOITANTS ARTISANAUX MINIERS</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;  /* Changement de police */
+            font-size: 25px;  /* Agrandissement de la taille de police */
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 40px
+        }
+
+        form {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 20px;  /* Agrandir la taille de la police pour les champs de saisie */
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .enregistrer-button {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .enregistrer-button:hover {
+            background-color: #218838;
+        }
+
+        .voir-liste-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .voir-liste-button:hover {
+            background-color: #0056b3;
+
+        }
+        .btn-red {
+            background-color: #e40a27;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 4px;
+        }
+
+        .retour-button {
+            background-color: #ef2d2d;
+        }
+    </style>   
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var enregistrementButton = document.getElementById('enregistrement-button');
+
+            enregistrementButton.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // Afficher une boîte de dialogue pour saisir le code d'accès
+                var codeAcces = prompt('Veuillez saisir le code d\'accès :');
+
+                // Vérifier si le code d'accès est valide
+                if (codeAcces === 'TSHIkomwa@31') {  // Remplacez 'votre_code_secret' par votre véritable code d'accès
+                    // Soumettre le formulaire
+                    document.querySelector('form').submit();
+                } else {
+                    alert('Code d\'accès incorrect. Veuillez réessayer.');
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>FICHE D'ENREGISTREMENT DES EXPLOITANTS ARTISANAUX MINIERS</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if enregistrement_reussi %}
+            <p style="color: green;">Enregistrement réussi!</p>
+        {% endif %}
+
+        {% if echec_enregistrement %}
+            <p style="color: red;">Echec d'enregistrement!!!</p>
+        {% endif %}
+        
+        {{ form.non_field_errors }}
+
+        <label for="{{ form.nom.id_for_label }}">Nom:</label>
+        {{ form.nom }}
+        {{ form.nom.errors }}
+            <br>
+
+        <label for="{{ form.post_nom.id_for_label }}">Post-Nom:</label>
+        {{ form.post_nom }}
+        {{ form.post_nom.errors }}
+        <br>
+
+        <label for="{{ form.prenom.id_for_label }}">Prénom:</label>
+        {{ form.prenom }}
+        {{ form.prenom.errors }}
+        <br>
+
+        <label for="{{ form.sexe.id_for_label }}">Sexe:</label>
+        {{ form.sexe }}
+        {{ form.sexe.errors }}
+        <br>
+
+        <label for="{{ form.lieu_naissance.id_for_label }}">Lieu de naissance:</label>
+        {{ form.lieu_naissance }}
+        {{ form.lieu_naissance.errors }}
+        <br>
+
+        <label for="{{ form.date_naissance.id_for_label }}">Date de naissance:</label>
+        {{ form.date_naissance }}
+        {{ form.date_naissance.errors }}
+        <br>
+
+        <label for="{{ form.etat_civil.id_for_label }}">État-Civil:</label>
+        {{ form.etat_civil }}
+        {{ form.etat_civil.errors }}
+        <br>
+
+        <label for="{{ form.nom_conjoint.id_for_label }}">Nom du conjoint:</label>
+        {{ form.nom_conjoint }}
+        {{ form.nom_conjoint.errors }}
+        <br>
+
+        <label for="{{ form.nb_enfants.id_for_label }}">Nombre d'enfants:</label>
+        {{ form.nb_enfants }}
+        {{ form.nb_enfants.errors }}
+        <br>
+
+        <label for="{{ form.adresse.id_for_label }}">Adresse:</label>
+        {{ form.adresse }}
+        {{ form.adresse.errors }}
+        <br>
+
+        <label for="{{ form.niveau_etude.id_for_label }}">Niveau d'étude:</label>
+        {{ form.niveau_etude }}
+        {{ form.niveau_etude.errors }}
+        <br>
+
+        <label for="{{ form.profession.id_for_label }}">Profession:</label>
+        {{ form.profession }}
+        {{ form.profession.errors }}
+        <br>
+
+        <label for="{{ form.fonction.id_for_label }}">Fonction:</label>
+        {{ form.fonction }}
+        {{ form.fonction.errors }}
+        <br>
+
+        <label for="{{ form.telephone.id_for_label }}">Téléphone:</label>
+        {{ form.telephone }}
+        {{ form.telephone.errors }}
+        <br>
+
+        <label for="{{ form.date_enregistrement.id_for_label }}">Date d'enregistrement:</label>
+        {{ form.date_enregistrement }}
+        {{ form.date_enregistrement.errors }}
+        <br>
+
+        <label for="{{ form.date_mise_a_jour.id_for_label }}">Date de mise à jour:</label>
+        {{ form.date_mise_a_jour }}
+        {{ form.date_mise_a_jour.errors }}
+        <br>
+
+        <label for="{{ form.photo.id_for_label }}">Photo:</label>
+        {{ form.photo }}
+        {{ form.photo.errors }}
+        <br>
+
+        <label for="{{ form.qrcode.id_for_label }}">QR Code:</label>
+        {{ form.qrcode }}
+        {{ form.qrcode.errors }}
+        <br>
+        <!-- Display the QR code image -->
+        {% if exploiteur.qrcode %}
+            <img src="{{ exploiteur.qrcode.url }}" alt="QR Code">
+        {% endif %}
+
+        <div class="button-container">
+            <a href="#" class="enregistrer-button accueil-button" id="enregistrement-button">Enregistrer</a>
+            <a href="{% url 'visualisation' %}" class="voir-liste-button accueil-button">Voir la liste</a>
+            <a href="{% url 'accueil' %}" class="retour-button btn-red">Retour</a>
+        </div>
+    </form>
+</body>
+
+</html>
+
+

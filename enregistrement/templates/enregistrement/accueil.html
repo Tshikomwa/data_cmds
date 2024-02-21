@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COOPERATIVE MINIERE POUR LE DEVELOPPEMENT ET LE SOCIAL_PAGE D'ACCUEIL</title>
+
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;  /* Changement de police */
+            font-size: 25px;  /* Agrandissement de la taille de police */
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #c57c7c;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 5px;
+        }
+        h2 {
+            font-size: 25px;
+            margin-bottom: 2px;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .logo-container img {
+            max-height: 50px;
+        }
+
+        main {
+            max-width: 1550px;
+            margin: 20px auto;
+            background-color: #d5d5f6;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(11, 11, 11, 0.1);
+        }
+
+        p {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .action-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .accueil-button {
+            padding: 10px 15px;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 150px;  /* Ajustez la largeur selon vos besoins */
+        }
+
+        .enregistrement {
+            background-color: #28a745;  /* Couleur pour le succès */
+            color: #fff;
+        }
+
+        .visualisation {
+            background-color: #007bff;  /* Couleur pour l'information */
+            color: #fff;
+        }
+
+        .enregistrer_incident {
+            background-color: #dc3545;  /* Couleur pour le danger */
+            color: #fff;
+        }
+
+        .accueil-button:hover {
+            opacity: 0.8;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+
+        .logo-container img {
+            max-height: 150px; /* Modifiez cette valeur selon vos besoins */
+        }
+    </style>
+    <script>
+        function beforeCasIncident() {
+            var userPassword = prompt("Veuillez saisir le mot de passe :");
+
+            // Vérifiez le mot de passe (remplacez "CHIKOmutanda@22" par votre mot de passe réel)
+            if (userPassword === "CHIKOmutanda@22") {
+                // Le mot de passe est correct, redirigez vers la page Cas_incident
+                window.location.href = "{% url 'enregistrer_incident' %}";
+            } else {
+                // Le mot de passe est incorrect, affichez un message d'erreur ou effectuez d'autres actions
+                alert("Mot de passe incorrect !");
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Flag_of_the_Democratic_Republic_of_the_Congo.svg/langfr-225px-Flag_of_the_Democratic_Republic_of_the_Congo.svg.png" alt="Logo Gauche">
+            <div class="titles">
+                <h1>REPUBLIQUE DEMOCRATIQUE DU CONGO</h1>
+                <h2>PROVINCE DU LUALABA</h2>
+                <h2>COOPERATIVE MINIERE POUR LE DEVELOPPEMENT ET LE SOCIAL AVEC CONSEIL D'ADMINISTRATION, CMDS COOP-CA en sigle.</h2>
+            </div>
+            <img src="https://static1.s123-cdn-static-a.com/uploads/8185280/800_64faff21e7006.jpg" alt="Logo Droit">
+        </div>
+    </header>
+    
+    <main class="container">
+        <h2>BIENVENUE SUR NOTRE PLATEFORME CMDS_DATA, OUTIL VIRTUEL CONTENANT LA BASE DE DONNEES DES EXPLOITANTS ARTISANAUX MINIERS DE LA CMDS COOP-CA.</h2>
+        <p>Plateforme virtuelle novatrice qui constitue la vitrine électronique de la riche base de données regroupant les exploitants artisanaux miniers affiliés à la Coopérative CMDS COOP-CA. Cette interface interactive offre une vision exhaustive et détaillée du paysage dynamique des acteurs opérant dans le secteur minier artisanal défini, mettant en lumière la diversité et la vitalité des membres de notre Coopérative.</p>
+        <p>Explorez les profils détaillés de chaque exploitant et accédez à des informations précieuses de notre communauté minière engagée. CMDS_DATA est l'idéal portail privilégié pour une compréhension approfondie sur le nombre d'exploitants artisanaux miniers régulièrement identifiés et le suivi régulier des cas des incidents au sein de la CMDS COOP-CA.</p>
+        <p>Naviguez vers les pages d'enregistrement pour inscrire un nouvel exploitant (reservé), de visualisation pour voir la liste des exploitants existants (acces libre sur l'ensemble et confidentialité sur les informations detaillées) et de Cas des incidents (reservé).</p>
+
+        <div class="action-buttons">
+            <a href="{% url 'recording' %}" class="enregistrement accueil-button">Enregistrement</a>
+            <a href="{% url 'visualisation' %}" class="visualisation accueil-button">Visualisation</a>
+            <a href="#" class="enregistrer_incident accueil-button" onclick="beforeCasIncident();">Cas_incident</a>
+
+        </div>
+    </main>
+</body>
+</html>

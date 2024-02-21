@@ -1,0 +1,199 @@
+<!-- visualiser_incidents.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STATISTIQUES DES INCIDENTS</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 20px;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 2000px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #081fec;
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 1px;
+        }
+
+        h3 {
+            color: #f4f4fa;
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 2px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: match-parent;
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: justify;
+        }
+
+        th {
+            background-color: #897df2;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-align: center;
+            color: #b5cee9;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        .btn-blue {
+            background-color: #282f1b;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-blue:hover {
+            background-color: #0056b3;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+
+        .btn-red {
+            background-color: #e40a27;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+
+        .logo-container img {
+            max-height: 150px; /* Modifiez cette valeur selon vos besoins */
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 5px;
+
+        }
+
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the total number of rows or incidents
+            var totalRows = document.querySelectorAll('.incident-row').length;
+
+            // Update the total in the HTML with French text
+            var totalCasesValue = document.getElementById('total-cases-value');
+            totalCasesValue.textContent = totalRows + " lignes enregistrées";
+        });
+    </script>
+
+    
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Flag_of_the_Democratic_Republic_of_the_Congo.svg/langfr-225px-Flag_of_the_Democratic_Republic_of_the_Congo.svg.png" alt="Logo Gauche">
+            <div class="titles">
+                <h1>REPUBLIQUE DEMOCRATIQUE DU CONGO</h1>
+                <h3>PROVINCE DU LUALABA</h3>
+                <h3>COOPERATIVE MINIERE POUR LE DEVELOPPEMENT ET LE SOCIAL AVEC CONSEIL D'ADMINISTRATION, CMDS COOP-CA en sigle.</h3>
+            </div>
+            <img src="https://static1.s123-cdn-static-a.com/uploads/8185280/800_64faff21e7006.jpg" alt="Logo Droit">
+        </div>
+    </header>
+    <div class="container">
+        <h2>STATISTIQUES DES INCIDENTS</h2>
+        <div>
+            <a href="{% url 'accueil' %}" class="btn-red">Retour à l'accueil</a>
+            <a href="{% url 'enregistrer_incident' %}" class="btn-blue">Enregistrer un autre cas</a>
+            <div id="total-cases">
+                <p>Total: <span id="total-cases-value">0</span></p>
+            </div>
+             
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>DATE</th>
+                    <th>LIEU</th>
+                    <th>TYPE</th>
+                    <th>NOMBRE DE CAS</th>
+                    <th>NOMS DES ACCIDENTES</th>
+                    <th>CAUSES</th>
+                    <th>DESCRIPTIONS</th>
+                    <th>RAPPORTEUR</th>
+                    <th>PROPRIETAIRE DU PUITS</th>
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Iterate through your incidents data and populate the table -->
+                {% for incident in incidents %}
+                    <tr class="incident-row">
+                        <td>{{ incident.date_incident }}</td>
+                        <td>{{ incident.lieu }}</td>
+                        <td>{{ incident.type_incident }}</td>
+                        <td>{{ incident.Nombre_cas }}</td>
+                        <td>{{ incident.Noms_accidentes }}</td>
+                        <td>{{ incident.cause_incident }}</td>
+                        <td>{{ incident.Description }}</td>
+                        <td>{{ incident.rapporteur }}</td>
+                        <td>{{ incident.proprietaire }}</td>
+                        <td>{{ incident.actions }}</td>
+                        <td>
+                            <a href="{% url 'delete_incident' incident.id %}" data-href="{% url 'delete_incident' incident.id %}" class="delete-button btn-red delete-link">X</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+
